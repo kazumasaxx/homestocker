@@ -1,0 +1,19 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+	<input type="hidden" name="id" [ngModel]="stock.id">
+	<table>
+		<tr>
+			<th>Id</th>
+			<td>{{stock.id}}</td>
+		</tr>
+		<tr>
+			<th>品名</th>
+			<td><input type="text" name="name" [ngModel]="stock.name"></td>
+		</tr>
+		<tr>
+			<th>個数</th>
+			<td><input type="text" name="count" [ngModel]="stock.count"></td>
+		</tr>
+	</table>
+	<button type="submit">OK</button>
+	<button routerLink="/stocks">Cancel</button>
+</form>

@@ -1,0 +1,17 @@
+<p>item-list works!</p>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>品名</th>
+		<th>価格</th>
+		<th>店名</th>
+	</tr>
+	<tr *ngFor="let item of items">
+		<td>{{item.id}}</td>
+		<td><a routerLink="/itemlist/{{item.id}}/edit">{{item.name}}</a></td>
+		<td>{{item.price}}</td>
+		<td>{{item.store}}</td>
+	</tr>
+</table>
+<br>
+<button routerLink="/itemlist/0/edit">追加</button>

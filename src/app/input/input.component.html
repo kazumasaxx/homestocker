@@ -1,0 +1,32 @@
+<!-- <p>input works!</p> -->
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+	<select name="comstore" [(ngModel)]="selected" (change)="showstore()">
+
+		<option value="">店を選択してください</option>
+		<option *ngFor="let store of stores" [value]="store.storename" [selected]="store.storename === selected">
+			{{store.storename}}
+		</option>
+	</select>
+	<!-- <p>{{selectedid}}</p>
+<p>{{selected}}</p> -->
+	<br>
+	<select name="comitem" [(ngModel)]="selecteditem" (change)="showitem()">
+
+		<!--リストボックスの生成-->
+		<option value="">品物を選択してください</option>
+		<option *ngFor="let item of items" [value]="item.name" [selected]="item.name === selected">{{item.name}}
+		</option>
+	</select>
+	<br>
+	<select name="comitemcount" [(ngModel)]="selectedcount">
+
+		<!--リストボックスの生成-->
+		<option value=""></option>
+		<option *ngFor="let count of itemcount" [value]="count" [selected]="count === selectedcount">
+			{{count}}
+		</option>
+	</select>
+	<br>
+	<button type="submit">入庫</button>
+	<p>{{testmessage}}</p>
+</form>

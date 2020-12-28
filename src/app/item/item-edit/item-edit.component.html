@@ -1,0 +1,32 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+	<input type="hidden" name="id" [ngModel]="item.id">
+	<table>
+		<tr>
+			<th>Id</th>
+			<td>{{item.id}}</td>
+		</tr>
+		<tr>
+			<th>品名</th>
+			<!-- 追加の時だけ入力できるようにしたい -->
+			<td><input type="text" name="name" [ngModel]="item.name"></td>
+		</tr>
+		<tr>
+			<th>価格</th>
+			<td><input type="text" name="price" [ngModel]="item.price"></td>
+		</tr>
+		<tr>
+			<th>店</th>
+			<td>
+				<select name="comstore" [(ngModel)]="selected" (change)="changestore()">
+					<option *ngFor="let store of stores" [value]="store.storename"
+						[selected]="store.storename === selected">
+						{{store.storename}}
+					</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<button type="submit">OK</button>
+	<button routerLink="/itemlist">Cancel</button>
+	<p>{{testmessage}}</p>
+</form>

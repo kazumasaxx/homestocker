@@ -1,0 +1,18 @@
+<h1>stocks</h1>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>品名</th>
+    <th>個数</th>
+  </tr>
+  <tr *ngFor="let stock of stocks">
+    <td>{{stock.id}}</td>
+    <td><a routerLink="/stocks/{{stock.id}}/edit">{{stock.name}}</a></td>
+    <td>{{stock.count}}</td>
+    <button (click)="plusAction(stock.id,stock.count)">+</button>
+    <button (click)="minusAction(stock.id,stock.count)">-</button>
+  </tr>
+</table>
+<br>
+<!-- <button routerLink="/stocks/0/add">追加</button> -->
+<p>{{testmessage}}</p>
